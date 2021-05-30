@@ -14,33 +14,9 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-// Level is used to configure the logs persisted.
-type Level int32
-
 var _ Logger = (*logger)(nil)
 var _ ConditionalLogger = (*logger)(nil)
 var _ ComponentLogger = (*logger)(nil)
-
-const (
-	// Trace is the most verbose level. Intended to be used for the tracing
-	// of actions in code, such as function enters/exits, etc.
-	Trace Level = iota + 1
-
-	// Debug information for programmer lowlevel analysis.
-	Debug
-
-	// Info information about steady state operations.
-	Info
-
-	// Warn information about rare but handled events.
-	Warn
-
-	// Error information about unrecoverable events.
-	Error
-
-	// Off disables all logging output.
-	Off
-)
 
 // Logger is a basic logging implementation that accepts a simple msg and any
 // additional attributes to attach to the log output.
